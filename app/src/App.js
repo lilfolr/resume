@@ -1,12 +1,18 @@
+// Functional
 import React, { Component } from "react";
 import _ from "lodash";
 import {menu} from "./menu";
 
+// Pages
+import Profile from "./Pages/profile";
+
+// UI
 import { Layout, Menu, Icon, BackTop } from "antd";
 import "./App.css";
 import "antd/dist/antd.css";
 
 const { Header, Content, Footer } = Layout;
+
 
 class App extends Component {
   constructor(props) {
@@ -36,9 +42,7 @@ class App extends Component {
             </Menu>
           </Header>
           <Content style={{ padding: "20px 50px" }}>
-            <div style={{ background: "#fff", padding: 24, minHeight: 280 }}>
-              Content
-            </div>
+            <Profile />
           </Content>
           <Footer style={{ textAlign: "center" }}>
             Leighton Lilford - Last updated 21 Feb 2018
