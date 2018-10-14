@@ -23,7 +23,7 @@ export const profiles = [
     },
     {
         url: "https://lrlilford.com",
-        title: "Own website",
+        title: "Website",
         avatar: <img src={Gravatar_logo} alt="Gravitar logo" />
         
     }

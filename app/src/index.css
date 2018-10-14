@@ -7,3 +7,7 @@ body {
 a {
   text-decoration: none;
 }
+
+.ant-timeline-item-tail {
+  border-left-color: #000 !important;
+}

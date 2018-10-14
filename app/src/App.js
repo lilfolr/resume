@@ -5,6 +5,7 @@ import {menu} from "./menu";
 
 // Pages
 import Profile from "./Pages/profile";
+import Education from "./Pages/education";
 
 // UI
 import { Layout, Menu, Icon, BackTop } from "antd";
@@ -30,6 +31,8 @@ class App extends Component {
   getPage() {
     const {page} = this.state
     switch (page) {
+      case "2":
+        return (<Education />)
       case "6":
         return (<Profile />)
       default:
