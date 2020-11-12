@@ -3,17 +3,14 @@ import React, { useState } from "react";
 import _ from "lodash";
 
 // Structure
-import Nav from "./Structure/nav"
+import Nav from "./structure/nav"
 
 // UI
 import { Layout, BackTop } from "antd";
-import 'antd/dist/antd.dark.css';
-
 const { Header, Content, Footer } = Layout;
 
 
 const App = () => {
-
   return (
     <>
       <BackTop />
