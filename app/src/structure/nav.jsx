@@ -2,35 +2,42 @@ import React, { useEffect, useState } from "react";
 
 // UI
 import { BsMoon, BsSun } from "react-icons/bs";
-import { Layout, Menu, Switch } from 'antd';
+import { Menu, Switch } from 'antd';
 
-import darkVars from './dark.json';
-import lightVars from './light.json';
 import styles from "./nav.module.css";
 
+const darkStyle = {
+    backgroundColor: "#141414",
+    color: "#fff",
+    borderBottom: "2px solid #303030"
+}
+const lightStyle = {
+  backgroundColor: "#fff",
+  borderBottom: "1px solid #303030"
+}
 
-const SideNav = () => {
-  const [isDark, setIsDark] = useState(true);
-
-  useEffect(() => {
-    const vars = isDark ? darkVars : lightVars;
-    window.less.modifyVars(vars)
-  }, [isDark])
+const SideNav = ({ isDark, setIsDark }) => {
 
   const toggle = () => {
     setIsDark(!isDark);
   }
-  return <>
-    <div className={styles.logo} />
-    <Menu mode="horizontal" defaultSelectedKeys={['2']}>
-      <Menu.Item key="1">nav 1</Menu.Item>
-      <Menu.Item key="2">nav 2</Menu.Item>
-      <Menu.Item key="3">nav 3</Menu.Item>
-      <div className={styles.rightMenu}>
+  return (
+    <div className={styles.root}>
+      <div className={styles.menu} >
+        <Menu mode="horizontal" defaultSelectedKeys={['2']} style={isDark ? darkStyle : lightStyle} >
+          <Menu.Item key="1">About Me</Menu.Item>
+          <Menu.Item key="2">Education</Menu.Item>
+          <Menu.Item key="3">Skills</Menu.Item>
+          <Menu.Item key="4">Experience</Menu.Item>
+          <Menu.Item key="4">Interest</Menu.Item>
+          <Menu.Item key="4">Profiles &amp; Contact</Menu.Item>
+        </Menu>
+      </div>
+      <div className={styles.rightMenu} style={isDark ? darkStyle : lightStyle}>
         <Switch checked={!isDark} onChange={toggle} unCheckedChildren={<BsMoon />} checkedChildren={<BsSun />} />
       </div>
-    </Menu>
-  </>
+    </div>
+  )
 }
 
 export default SideNav;
