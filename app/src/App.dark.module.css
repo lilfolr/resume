@@ -8,3 +8,18 @@
   background-color: #141414 !important;
   color: #fff !important;
 }
+
+.timeTooltip {
+  text-decoration: underline;
+}
+
+.scrollDiv {
+  overflow-y: scroll;
+  height: calc(100vh - 134px);
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
+
+.scrollDiv::-webkit-scrollbar {
+  display: none;
+}

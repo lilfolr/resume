@@ -3,3 +3,18 @@
   min-height: 100vh;
   margin:20px
 }
+
+.timeTooltip {
+  text-decoration: underline;
+}
+
+.scrollDiv {
+  overflow-y: scroll;
+  height: calc(100vh - 134px);
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
+
+.scrollDiv::-webkit-scrollbar {
+  display: none;
+}
