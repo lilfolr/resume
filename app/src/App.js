@@ -29,46 +29,54 @@ const App = () => {
 
   useEffect(() => {
     document.getElementById("loadingDiv").style["display"] = "none";
-  },[]);
+  }, []);
 
   useEffect(() => {
     if (scrollRef.current) {
       setShowProgress(true);
     }
-  },[scrollRef]);
+  }, [scrollRef]);
 
   return (
-    <div >
+    <div>
       <BackTop />
       <Layout className={styles.root}>
-        <Affix >
+        <Affix>
           <Header style={{ padding: "0" }}>
             <Nav isDark={isDark} setIsDark={setIsDark} />
           </Header>
         </Affix>
         <Content>
-          <div ref={scrollRef} className={styles.scrollDiv} >
+          <div ref={scrollRef} className={styles.scrollDiv}>
             <Row>
+              <Col flex={1}></Col>
+              <Col
+                flex={3}
+                className={styles.content}
+                style={{ height: "10000px" }}
+              >
+                <div>Content</div>
+              </Col>
               <Col flex={1}>
-              </Col>
-              <Col flex={3} className={styles.content} style={{height: "10000px"}}>
-                <div>
-                Content
-                </div>
-              </Col>
-              <Col flex={1} >
-                {showProgress && <ProgressIndicator isDark={isDark} scrollRef={scrollRef}/>}
+                {showProgress && (
+                  <ProgressIndicator isDark={isDark} scrollRef={scrollRef} />
+                )}
               </Col>
             </Row>
           </div>
         </Content>
         <Footer style={{ textAlign: "center" }} className={styles.root}>
-          &copy; Leighton Lilford - Last updated <Tooltip title={BUILD_TIME.toLocaleString()} className={styles.timeTooltip}>{BUILD_TIME.fromNow()}</Tooltip>
+          &copy; Leighton Lilford - Last updated{" "}
+          <Tooltip
+            title={BUILD_TIME.toLocaleString()}
+            className={styles.timeTooltip}
+          >
+            {BUILD_TIME.fromNow()}
+          </Tooltip>
         </Footer>
       </Layout>
     </div>
   );
 };
-
 
 export default App;

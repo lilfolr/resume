@@ -3,15 +3,15 @@ import {
   motion,
   useElementScroll,
   useSpring,
-  useTransform
+  useTransform,
 } from "framer-motion";
-const CircleIndicator = ({scrollRef, isDark=true}) => {
+const CircleIndicator = ({ scrollRef, isDark = true }) => {
   const [isComplete, setIsComplete] = useState(false);
   const scrollYProgress = useElementScroll(scrollRef).scrollYProgress;
   const yRange = useTransform(scrollYProgress, [0, 0.9], [0, 1]);
   const pathLength = useSpring(yRange, { stiffness: 400, damping: 90 });
 
-  useEffect(() => yRange.onChange(v => setIsComplete(v >= 1)), [yRange]);
+  useEffect(() => yRange.onChange((v) => setIsComplete(v >= 1)), [yRange]);
 
   const styles = {
     position: "fixed",
@@ -25,7 +25,7 @@ const CircleIndicator = ({scrollRef, isDark=true}) => {
       <motion.path
         fill="none"
         strokeWidth="5"
-        stroke={isDark?"white":"black"}
+        stroke={isDark ? "white" : "black"}
         strokeDasharray="0 1"
         d="M 0, 20 a 20, 20 0 1,0 40,0 a 20, 20 0 1,0 -40,0"
         style={{
@@ -33,13 +33,13 @@ const CircleIndicator = ({scrollRef, isDark=true}) => {
           rotate: 90,
           translateX: 5,
           translateY: 5,
-          scaleX: -1 // Reverse direction of line animation
+          scaleX: -1, // Reverse direction of line animation
         }}
       />
       <motion.path
         fill="none"
         strokeWidth="5"
-        stroke={isDark?"white":"black"}
+        stroke={isDark ? "white" : "black"}
         d="M14,26 L 22,33 L 35,16"
         initial={false}
         strokeDasharray="0 1"
