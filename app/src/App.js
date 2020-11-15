@@ -21,7 +21,10 @@ const { Header, Content, Footer } = Layout;
 const BUILD_TIME = moment.unix(process.env.REACT_APP_BUILD_TIME);
 
 const App = () => {
-  const [isDark, setIsDark] = useState(true);
+  const prefersDark =
+    window.matchMedia &&
+    window.matchMedia("(prefers-color-scheme: dark)").matches;
+  const [isDark, setIsDark] = useState(prefersDark);
   const [showProgress, setShowProgress] = useState(false);
   const scrollRef = useRef(null);
 
@@ -41,7 +44,7 @@ const App = () => {
     <div>
       <BackTop />
       <Layout className={styles.root}>
-        <Affix>
+        <Affix style={{ zIndex: 2 }}>
           <Header style={{ padding: "0" }}>
             <Nav isDark={isDark} setIsDark={setIsDark} />
           </Header>
