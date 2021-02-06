@@ -9,15 +9,28 @@ import moment from "moment";
 
 // Pages
 import Profile from "./pages/profile";
+import Education from "./pages/education";
 
 // UI
 import { Layout, BackTop, Affix, Tooltip } from "antd";
-import { Row, Col } from "antd";
+import { Row, Col, Divider } from "antd";
 
 // Styles
 import "antd/dist/antd.css";
 import lstyles from "./App.light.module.css";
 import dstyles from "./App.dark.module.css";
+
+const footerDarkStyle = {
+  textAlign: "center",
+  backgroundColor: "#141414",
+  color: "#fff",
+  borderTop: "2px solid #303030",
+};
+const footerLightStyle = {
+  textAlign: "center",
+  backgroundColor: "#fff",
+  borderTop: "1px solid #303030",
+};
 
 const { Header, Content, Footer } = Layout;
 
@@ -61,9 +74,12 @@ const App = () => {
                 className={styles.content}
                 style={{ height: "10000px" }}
               >
-                <Profile isDark={isDark} />
                 <div>education</div>
                 <div>Content</div>
+                <Divider />
+                <Education isDark={isDark} />
+                <Divider />
+                <Profile isDark={isDark} />
               </Col>
               <Col flex={1}>
                 {showProgress && (
@@ -73,7 +89,7 @@ const App = () => {
             </Row>
           </div>
         </Content>
-        <Footer style={{ textAlign: "center" }} className={styles.root}>
+        <Footer style={footerLightStyle} className={styles.root}>
           &copy; Leighton Lilford - Last updated{" "}
           <Tooltip
             title={BUILD_TIME.toLocaleString()}

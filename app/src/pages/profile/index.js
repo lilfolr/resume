@@ -6,7 +6,7 @@ import { Row, Col, Card } from "antd";
 const { Meta } = Card;
 
 const Profile = ({ isDark }) => {
-  const background = isDark ? "#1b1b1b" : "#ECECEC";
+  const background = isDark ? "#1b1b1b" : "#eff2f5";
   const color = isDark ? "#EEE" : "#000";
   const secondColor = isDark ? "#AAA" : "#888";
   const cardStyle = isDark
@@ -17,7 +17,7 @@ const Profile = ({ isDark }) => {
     : null;
 
   return (
-    <div style={{ background, color, padding: "30px" }}>
+    <div style={{ color, padding: "30px" }}>
       <h2 style={{ color }}>Web Profiles</h2>
       <Row gutter={16}>
         {_.map(consts.profiles(isDark), (p) => {

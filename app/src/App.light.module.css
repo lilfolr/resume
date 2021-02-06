@@ -1,11 +1,16 @@
 .content {
-  background-color: #ddd;
+  background-color: #fff;
   min-height: 100vh;
   margin: 20px;
 }
 
 .timeTooltip {
   text-decoration: underline;
+}
+
+.root {
+  background-color: #fff !important;
+  color: #fff !important;
 }
 
 .scrollDiv {
