@@ -39,7 +39,9 @@ const SideNav = ({ isDark, setIsDark }) => {
             <Menu.Item key="3" onClick={() => scroll("skills")}>
               Skills
             </Menu.Item>
-            <Menu.Item key="4">Experience</Menu.Item>
+            <Menu.Item key="4" onClick={() => scroll("experience")}>
+              Experience
+            </Menu.Item>
             <Menu.Item key="5">Interest</Menu.Item>
             <Menu.Item key="6" onClick={() => scroll("profiles")}>
               Profiles &amp; Contact

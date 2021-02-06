@@ -10,6 +10,7 @@ import moment from "moment";
 // Pages
 import Profile from "./pages/profile";
 import Education from "./pages/education";
+import Experience from "./pages/experience";
 import Skills from "./pages/skills";
 
 // UI
@@ -67,6 +68,8 @@ const App = () => {
                 <Education isDark={isDark} />
                 <Divider />
                 <Skills isDark={isDark} />
+                <Divider />
+                <Experience isDark={isDark} />
                 <Divider />
                 <Profile isDark={isDark} />
               </Col>
