@@ -7,6 +7,9 @@ import ProgressIndicator from "./structure/sideProgress";
 
 import moment from "moment";
 
+// Pages
+import Profile from "./pages/profile";
+
 // UI
 import { Layout, BackTop, Affix, Tooltip } from "antd";
 import { Row, Col } from "antd";
@@ -58,6 +61,8 @@ const App = () => {
                 className={styles.content}
                 style={{ height: "10000px" }}
               >
+                <Profile isDark={isDark} />
+                <div>education</div>
                 <div>Content</div>
               </Col>
               <Col flex={1}>
