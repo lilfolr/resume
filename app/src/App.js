@@ -20,15 +20,8 @@ import "antd/dist/antd.css";
 import lstyles from "./App.light.module.css";
 import dstyles from "./App.dark.module.css";
 
-const footerDarkStyle = {
+const footerStyle = {
   textAlign: "center",
-  backgroundColor: "#141414",
-  color: "#fff",
-  borderTop: "2px solid #303030",
-};
-const footerLightStyle = {
-  textAlign: "center",
-  backgroundColor: "#fff",
   borderTop: "1px solid #303030",
 };
 
@@ -69,14 +62,7 @@ const App = () => {
           <div ref={scrollRef} className={styles.scrollDiv}>
             <Row>
               <Col flex={1}></Col>
-              <Col
-                flex={3}
-                className={styles.content}
-                style={{ height: "10000px" }}
-              >
-                <div>education</div>
-                <div>Content</div>
-                <Divider />
+              <Col flex={3} className={styles.content}>
                 <Education isDark={isDark} />
                 <Divider />
                 <Profile isDark={isDark} />
@@ -89,7 +75,7 @@ const App = () => {
             </Row>
           </div>
         </Content>
-        <Footer style={footerLightStyle} className={styles.root}>
+        <Footer style={footerStyle} className={styles.root}>
           &copy; Leighton Lilford - Last updated{" "}
           <Tooltip
             title={BUILD_TIME.toLocaleString()}

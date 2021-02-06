@@ -9,7 +9,7 @@ const Education = ({ isDark }) => {
   const text = "";
 
   return (
-    <div style={{ color, padding: "30px" }}>
+    <div style={{ color, padding: "30px" }} id="education">
       <h2 style={{ color }}>Education</h2>
       <Collapse ghost>
         <Panel header="Masters" key="3">
@@ -23,10 +23,6 @@ const Education = ({ isDark }) => {
             <Descriptions.Item label="Specialisation" span={2}>
               Software Engineering
             </Descriptions.Item>
-            <Descriptions.Item label="Weighted Average Mark">
-              78.13
-            </Descriptions.Item>
-            <Descriptions.Item label="GPA">6.32</Descriptions.Item>
           </Descriptions>
         </Panel>
         <Panel header="Bachelors" key="2">
@@ -43,10 +39,6 @@ const Education = ({ isDark }) => {
             <Descriptions.Item label="Second Major">
               Computer Science
             </Descriptions.Item>
-            <Descriptions.Item label="Weighted Average Mark">
-              77.38
-            </Descriptions.Item>
-            <Descriptions.Item label="GPA">6.25</Descriptions.Item>
           </Descriptions>
         </Panel>
         <Panel header="High School" key="1">
@@ -54,47 +46,37 @@ const Education = ({ isDark }) => {
             <Descriptions.Item label="School" span={2}>
               Hale
             </Descriptions.Item>
-            <Descriptions.Item label="ATAR" span={2}>
-              98
-            </Descriptions.Item>
             <Descriptions.Item label="Year 12 subjects" span={2}>
               <Table
                 pagination={false}
                 columns={[
                   { title: "Subject", dataIndex: "s" },
                   { title: "Unit", dataIndex: "u" },
-                  { title: "Scaled Score", dataIndex: "ss" },
                 ]}
                 dataSource={[
                   {
                     s: "Engineering Studies",
                     u: "3A/3B",
-                    ss: "89.7",
                   },
                   {
                     s: "Mathematics",
                     u: "3C/3D",
-                    ss: "83.1",
                   },
                   {
                     s: "Physics",
                     u: "3A/3B",
-                    ss: "78.8",
                   },
                   {
                     s: "Chemistry",
                     u: "3A/3B",
-                    ss: "77.3",
                   },
                   {
                     s: "Mathematics: Specialist",
                     u: "3C/3D",
-                    ss: "75.8",
                   },
                   {
                     s: "English",
                     u: "3A/3B",
-                    ss: "62.1",
                   },
                 ]}
               />

@@ -1,8 +1,8 @@
-import React, { useEffect, useState } from "react";
+import React from "react";
 
 // UI
 import { BsMoon, BsSun } from "react-icons/bs";
-import { Menu, Switch, Progress } from "antd";
+import { Menu, Switch } from "antd";
 
 import styles from "./nav.module.css";
 
@@ -20,21 +20,28 @@ const SideNav = ({ isDark, setIsDark }) => {
   const toggle = () => {
     setIsDark(!isDark);
   };
+  const scroll = (id) => {
+    document.getElementById(id).scrollIntoView({ behavior: "smooth" });
+  };
   return (
     <>
       <div className={styles.root}>
         <div className={styles.menu}>
           <Menu
             mode="horizontal"
-            defaultSelectedKeys={["2"]}
+            selectedKeys={[]}
             style={isDark ? darkStyle : lightStyle}
           >
             <Menu.Item key="1">About Me</Menu.Item>
-            <Menu.Item key="2">Education</Menu.Item>
+            <Menu.Item key="2" onClick={() => scroll("education")}>
+              Education
+            </Menu.Item>
             <Menu.Item key="3">Skills</Menu.Item>
             <Menu.Item key="4">Experience</Menu.Item>
             <Menu.Item key="5">Interest</Menu.Item>
-            <Menu.Item key="6">Profiles &amp; Contact</Menu.Item>
+            <Menu.Item key="6" onClick={() => scroll("profiles")}>
+              Profiles &amp; Contact
+            </Menu.Item>
           </Menu>
         </div>
         <div

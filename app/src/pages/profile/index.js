@@ -17,7 +17,7 @@ const Profile = ({ isDark }) => {
     : null;
 
   return (
-    <div style={{ color, padding: "30px" }}>
+    <div id="profiles" style={{ color, padding: "30px" }}>
       <h2 style={{ color }}>Web Profiles</h2>
       <Row gutter={16}>
         {_.map(consts.profiles(isDark), (p) => {
