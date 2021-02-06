@@ -10,6 +10,7 @@ import moment from "moment";
 // Pages
 import Profile from "./pages/profile";
 import Education from "./pages/education";
+import Skills from "./pages/skills";
 
 // UI
 import { Layout, BackTop, Affix, Tooltip } from "antd";
@@ -64,6 +65,8 @@ const App = () => {
               <Col flex={1}></Col>
               <Col flex={3} className={styles.content}>
                 <Education isDark={isDark} />
+                <Divider />
+                <Skills isDark={isDark} />
                 <Divider />
                 <Profile isDark={isDark} />
               </Col>
