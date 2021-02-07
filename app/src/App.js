@@ -8,7 +8,9 @@ import ProgressIndicator from "./structure/sideProgress";
 import moment from "moment";
 
 // Pages
+import AboutMe from "./pages/aboutMe";
 import Profile from "./pages/profile";
+import Interests from "./pages/interests";
 import Education from "./pages/education";
 import Experience from "./pages/experience";
 import Skills from "./pages/skills";
@@ -65,11 +67,15 @@ const App = () => {
             <Row>
               <Col flex={1}></Col>
               <Col flex={3} className={styles.content}>
+                <AboutMe isDark={isDark} />
+                <Divider />
                 <Education isDark={isDark} />
                 <Divider />
                 <Skills isDark={isDark} />
                 <Divider />
                 <Experience isDark={isDark} />
+                <Divider />
+                <Interests isDark={isDark} />
                 <Divider />
                 <Profile isDark={isDark} />
               </Col>

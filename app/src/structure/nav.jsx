@@ -32,7 +32,9 @@ const SideNav = ({ isDark, setIsDark }) => {
             selectedKeys={[]}
             style={isDark ? darkStyle : lightStyle}
           >
-            <Menu.Item key="1">About Me</Menu.Item>
+            <Menu.Item key="1" onClick={() => scroll("aboutMe")}>
+              About Me
+            </Menu.Item>
             <Menu.Item key="2" onClick={() => scroll("education")}>
               Education
             </Menu.Item>
@@ -42,7 +44,9 @@ const SideNav = ({ isDark, setIsDark }) => {
             <Menu.Item key="4" onClick={() => scroll("experience")}>
               Experience
             </Menu.Item>
-            <Menu.Item key="5">Interest</Menu.Item>
+            <Menu.Item key="5" onClick={() => scroll("interests")}>
+              Interests/Activities
+            </Menu.Item>
             <Menu.Item key="6" onClick={() => scroll("profiles")}>
               Profiles &amp; Contact
             </Menu.Item>

@@ -1,10 +1,9 @@
 import React from "react";
 import _ from "lodash";
-import { Tabs, List, Card, Rate } from "antd";
 
 import styles from "./index.module.css";
 
-const Education = ({ isDark }) => {
+const Experience = ({ isDark }) => {
   const color = isDark ? "#EEE" : "#000";
 
   return (
@@ -136,4 +135,4 @@ const Education = ({ isDark }) => {
   );
 };
 
-export default Education;
+export default Experience;
