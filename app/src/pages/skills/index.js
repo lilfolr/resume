@@ -4,6 +4,15 @@ import { Tabs, List, Card, Rate } from "antd";
 
 const { TabPane } = Tabs;
 
+const cardStyle = (isDark) => {
+  if (isDark) {
+    return {
+      backgroundColor: "#444",
+      color: "#fff",
+      borderColor: "#666",
+    };
+  }
+};
 const Education = ({ isDark }) => {
   const color = isDark ? "#EEE" : "#000";
 
@@ -86,7 +95,7 @@ const Education = ({ isDark }) => {
       dataSource={data}
       renderItem={(item) => (
         <List.Item>
-          <Card size="small">
+          <Card size="small" style={cardStyle(isDark)}>
             <div style={{ display: "flex" }}>
               <div style={{ flexGrow: 1, position: "relative" }}>
                 <span
@@ -122,7 +131,7 @@ const Education = ({ isDark }) => {
   return (
     <div style={{ color, padding: "30px" }} id="skills">
       <h2 style={{ color }}>Skills</h2>
-      <Tabs type="card">
+      <Tabs style={{ color: isDark ? "#fff" : "#000" }}>
         <TabPane tab="Programming Languages" key="1">
           {innerPane(data.p)}
         </TabPane>

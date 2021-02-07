@@ -1,89 +1,76 @@
 import React from "react";
 import _ from "lodash";
-import { Collapse, Descriptions, Table } from "antd";
+import { Collapse, Descriptions, Table, Typography } from "antd";
+
+import "./index.css";
 
 const { Panel } = Collapse;
+const { Title } = Typography;
 
 const Education = ({ isDark }) => {
   const color = isDark ? "#EEE" : "#000";
-  const text = "";
+  const background = isDark ? "#1b1b1b" : "#eff2f5";
 
   return (
     <div style={{ color, padding: "30px" }} id="education">
       <h2 style={{ color }}>Education</h2>
-      <Collapse ghost>
-        <Panel header="Masters" key="3">
-          <Descriptions bordered column={2}>
-            <Descriptions.Item label="Degree">
-              Master of Professional Engineering
-            </Descriptions.Item>
-            <Descriptions.Item label="University">
-              University of Western Australia
-            </Descriptions.Item>
-            <Descriptions.Item label="Specialisation" span={2}>
-              Software Engineering
-            </Descriptions.Item>
-          </Descriptions>
-        </Panel>
-        <Panel header="Bachelors" key="2">
-          <Descriptions bordered column={2}>
-            <Descriptions.Item label="Degree">
-              Bachelor of Science
-            </Descriptions.Item>
-            <Descriptions.Item label="University">
-              University of Western Australia
-            </Descriptions.Item>
-            <Descriptions.Item label="Degree Specific Major">
-              Engineering Science
-            </Descriptions.Item>
-            <Descriptions.Item label="Second Major">
-              Computer Science
-            </Descriptions.Item>
-          </Descriptions>
-        </Panel>
-        <Panel header="High School" key="1">
-          <Descriptions bordered column={2}>
-            <Descriptions.Item label="School" span={2}>
-              Hale
-            </Descriptions.Item>
-            <Descriptions.Item label="Year 12 subjects" span={2}>
-              <Table
-                pagination={false}
-                columns={[
-                  { title: "Subject", dataIndex: "s" },
-                  { title: "Unit", dataIndex: "u" },
-                ]}
-                dataSource={[
-                  {
-                    s: "Engineering Studies",
-                    u: "3A/3B",
-                  },
-                  {
-                    s: "Mathematics",
-                    u: "3C/3D",
-                  },
-                  {
-                    s: "Physics",
-                    u: "3A/3B",
-                  },
-                  {
-                    s: "Chemistry",
-                    u: "3A/3B",
-                  },
-                  {
-                    s: "Mathematics: Specialist",
-                    u: "3C/3D",
-                  },
-                  {
-                    s: "English",
-                    u: "3A/3B",
-                  },
-                ]}
-              />
-            </Descriptions.Item>
-          </Descriptions>
-        </Panel>
-      </Collapse>
+      <Title style={{ color }} level={4}>
+        Masters
+      </Title>
+      <p>
+        <span>
+          <b>Degree:</b> Master of Professional Engineering
+        </span>
+        <br />
+        <span>
+          <b>University:</b> University of Western Australia
+        </span>
+        <br />
+        <span>
+          <b>Specialisation:</b> Software Engineering
+        </span>
+        <br />
+      </p>
+      <Title style={{ color }} level={4}>
+        Bachelors
+      </Title>
+      <p>
+        <span>
+          <b>Degree:</b> Bachelor of Science
+        </span>
+        <br />
+        <span>
+          <b>University:</b> University of Western Australia
+        </span>
+        <br />
+        <span>
+          <b>Degree Specific Major:</b> Engineering Science
+        </span>
+        <br />
+        <span>
+          <b>Second Major:</b> Computer Science
+        </span>
+        <br />
+      </p>
+      <Title style={{ color }} level={4}>
+        High School
+      </Title>
+      <p>
+        <span>
+          <b>School:</b> Hale
+        </span>
+        <br />
+        <b>Year 12 Subjects:</b>
+        <br />
+        <ul>
+          <li>Engineering Studies 3A/3B</li>
+          <li>Mathematics 3C/3D</li>
+          <li>Physics 3A/3B</li>
+          <li>Chemistry 3A/3B</li>
+          <li>Mathematics Specialist 3C/3D</li>
+          <li>English 3A/3B</li>
+        </ul>
+      </p>
     </div>
   );
 };

@@ -17,7 +17,7 @@ import Skills from "./pages/skills";
 
 // UI
 import { Layout, BackTop, Affix, Tooltip } from "antd";
-import { Row, Col, Divider } from "antd";
+import { Row, Col, Divider as DDivider } from "antd";
 
 // Styles
 import "antd/dist/antd.css";
@@ -33,6 +33,12 @@ const { Header, Content, Footer } = Layout;
 
 const BUILD_TIME = moment.unix(process.env.REACT_APP_BUILD_TIME);
 
+const Divider = ({ isDark = false }) => {
+  if (isDark) {
+    <DDivider style={{ borderColor: "#717171" }} />;
+  }
+  return <DDivider style={{ borderColor: "#a9a9a9" }} />;
+};
 const App = () => {
   const prefersDark =
     window.matchMedia &&
@@ -68,15 +74,15 @@ const App = () => {
               <Col flex={1}></Col>
               <Col flex={3} className={styles.content}>
                 <AboutMe isDark={isDark} />
-                <Divider />
+                <Divider isDark={isDark} />
                 <Education isDark={isDark} />
-                <Divider />
+                <Divider isDark={isDark} />
                 <Skills isDark={isDark} />
-                <Divider />
+                <Divider isDark={isDark} />
                 <Experience isDark={isDark} />
-                <Divider />
+                <Divider isDark={isDark} />
                 <Interests isDark={isDark} />
-                <Divider />
+                <Divider isDark={isDark} />
                 <Profile isDark={isDark} />
               </Col>
               <Col flex={1}>

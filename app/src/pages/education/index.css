@@ -1,0 +1,9 @@
+.collapseLight {
+}
+
+.collapseDark {
+  background: #1b1b1b;
+}
+.collapseDark > .ant-collapse-item > .ant-collapse-header {
+  color: #eee !important;
+}

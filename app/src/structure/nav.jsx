@@ -59,8 +59,16 @@ const SideNav = ({ isDark, setIsDark }) => {
           <Switch
             checked={!isDark}
             onChange={toggle}
-            unCheckedChildren={<BsMoon />}
-            checkedChildren={<BsSun />}
+            unCheckedChildren={
+              <div style={{ paddingTop: "2px" }}>
+                <BsMoon />
+              </div>
+            }
+            checkedChildren={
+              <div style={{ paddingTop: "2px" }}>
+                <BsSun />
+              </div>
+            }
           />
         </div>
       </div>
