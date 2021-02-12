@@ -22,7 +22,7 @@ const Profile = ({ isDark }) => {
       <Row gutter={16}>
         {_.map(consts.profiles(isDark), (p) => {
           return (
-            <Col span={6}>
+            <Col span={6} xs={24} sm={12}>
               <a target="_blank" href={p.url} key={p.url}>
                 <Card hoverable style={cardStyle}>
                   <Meta
