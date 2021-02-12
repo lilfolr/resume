@@ -5,6 +5,8 @@ import {
   useSpring,
   useTransform,
 } from "framer-motion";
+import classStyles from "./sideProgress.module.css";
+
 const CircleIndicator = ({ scrollRef, isDark = true }) => {
   const [isComplete, setIsComplete] = useState(false);
   const scrollYProgress = useElementScroll(scrollRef).scrollYProgress;
@@ -21,7 +23,7 @@ const CircleIndicator = ({ scrollRef, isDark = true }) => {
     height: "120px",
   };
   return (
-    <svg style={styles} viewBox="0 0 60 60">
+    <svg className={classStyles.svg} style={styles} viewBox="0 0 60 60">
       <motion.path
         fill="none"
         strokeWidth="5"

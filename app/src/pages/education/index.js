@@ -14,7 +14,7 @@ const Education = ({ isDark }) => {
   return (
     <div style={{ color, padding: "30px" }} id="education">
       <h2 style={{ color }}>Education</h2>
-      <Title style={{ color }} level={4}>
+      <Title style={{ color }} level={5}>
         Masters
       </Title>
       <p>
@@ -31,7 +31,7 @@ const Education = ({ isDark }) => {
         </span>
         <br />
       </p>
-      <Title style={{ color }} level={4}>
+      <Title style={{ color }} level={5}>
         Bachelors
       </Title>
       <p>
@@ -52,7 +52,7 @@ const Education = ({ isDark }) => {
         </span>
         <br />
       </p>
-      <Title style={{ color }} level={4}>
+      <Title style={{ color }} level={5}>
         High School
       </Title>
       <p>
