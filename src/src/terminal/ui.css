@@ -23,6 +23,11 @@
   vertical-align: middle;
 }
 
+.terminalBody > p > .hidden {
+  width: 0;
+  overflow: hidden;
+}
+
 .terminalBody > p > .caret.blinking {
   animation: blinker 1s ease-in-out infinite;
 }

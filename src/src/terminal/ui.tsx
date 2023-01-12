@@ -1,20 +1,28 @@
-import { useState } from "react";
+import { useRef, useState } from "react";
 import { Keyframes, Frame } from "./react-keyframe";
 import "./ui.css";
 
 type TerminalProps = {
   terminalContent: String[];
+  onEnter: (t: string) => void;
 };
 
 const sleepDuration = 300;
 const getTypingDuration = () => 40 + 80 * (Math.random() - 0.5);
 
-const renderText = (text: String, caret: {blinking: boolean}|false = false) => (
+const renderText = (
+  text: String,
+  caret: { blinking: boolean } | false = false
+) => (
   <>
     <span style={{ color: "#00c200" }}>{"~ "}</span>
     <span>{"$ "}</span>
     <span>{text}</span>
-    {caret && <span className={`caret ${caret.blinking && "blinking"}`} />}
+    {caret && (
+      <span
+        className={`caret ${caret.blinking && "blinking"}`}
+      />
+    )}
   </>
 );
 
@@ -30,13 +38,17 @@ const renderLine = (text: String, key: number, onComplete: () => void) => {
     const duration = isLastLetter ? sleepDuration : getTypingDuration();
     frames.push(
       <Frame duration={duration} key={`${text}-${i}`}>
-        {renderText(text.slice(0, i + 1), {blinking: false})}
+        {renderText(text.slice(0, i + 1), { blinking: false })}
       </Frame>
     );
   }
 
   // ending frame
-  frames.push(<Frame key={`${text}-last`}>{renderText(text, {blinking: false})}</Frame>);
+  frames.push(
+    <Frame key={`${text}-last`}>
+      {renderText(text, { blinking: false })}
+    </Frame>
+  );
 
   return (
     <Keyframes component="p" key={key} onEnd={onComplete}>
@@ -46,10 +58,20 @@ const renderLine = (text: String, key: number, onComplete: () => void) => {
 };
 
 function Terminal(props: TerminalProps) {
+  const inputRef = useRef<HTMLInputElement>(null);
   const [currentLine, setCurrentLine] = useState(0);
+  const [currentText, setCurrentText] = useState("");
+
   const { terminalContent } = props;
 
-  console.log("CurrentLine", currentLine);
+  const focusInput = () => {
+    inputRef.current?.focus();
+    resetCaret()
+  };
+  const resetCaret = () => {
+    // We want to disable moving of the caret in our hidden input
+    inputRef.current?.setSelectionRange(9999, 9999)
+  };
 
   return (
     <div className="terminalWrapper">
@@ -58,7 +80,7 @@ function Terminal(props: TerminalProps) {
         <div className="icon minimize" />
         <div className="icon expand" />
       </div>
-      <div className="terminalBody">
+      <div className="terminalBody" onClick={focusInput}>
         {terminalContent.map((text, index) => {
           if (index < currentLine) {
             return <p key={index}>{renderText(text)}</p>;
@@ -66,7 +88,22 @@ function Terminal(props: TerminalProps) {
             return renderLine(text, index, () => setCurrentLine((i) => i + 1));
           }
         })}
-        {currentLine === terminalContent.length && <p>{renderText("", {blinking: true})}</p>}
+        {currentLine === terminalContent.length && (
+          <p style={{ cursor: "text" }}>
+            {renderText(currentText, { blinking: true })}
+            <div className="hidden">
+              <input
+                ref={inputRef}
+                autoFocus
+                onKeyUp={resetCaret}
+                onKeyDown={resetCaret}
+                onChange={(e) => {
+                  setCurrentText(e.target.value);
+                }}
+              />
+            </div>
+          </p>
+        )}
       </div>
     </div>
   );

@@ -1,1 +1,1 @@
-export {default as Terminal} from "./ui"
+export {default as Terminal} from "./controller"
