@@ -1,5 +1,5 @@
 import { useRef, useState } from "react";
-import { Keyframes, Frame } from "./react-keyframe";
+import { AnimatedText } from "./animatedText";
 import "./ui.css";
 
 type TerminalProps = {
@@ -7,9 +7,6 @@ type TerminalProps = {
   onEnter: (t: string) => void;
   validCommands: string[];
 };
-
-const sleepDuration = 300;
-const getTypingDuration = () => 40 + 80 * (Math.random() - 0.5);
 
 const renderText = (
   text: string,
@@ -23,32 +20,6 @@ const renderText = (
     {caret && <span className={`caret ${caret.blinking && "blinking"}`} />}
   </>
 );
-
-const renderLine = (text: string, key: number, onComplete: () => void) => {
-  const frames = [];
-
-  // typing out the line
-  for (let i = 0; i < text.length; i++) {
-    const isLastLetter = i === text.length - 1;
-    const duration = isLastLetter ? sleepDuration : getTypingDuration();
-    frames.push(
-      <Frame duration={duration} key={`${text}-${i}`}>
-        {renderText(text.slice(0, i + 1), { blinking: false })}
-      </Frame>
-    );
-  }
-
-  // ending frame
-  frames.push(
-    <Frame key={`${text}-last`}>{renderText(text, { blinking: false })}</Frame>
-  );
-
-  return (
-    <Keyframes component="p" key={key} onEnd={onComplete}>
-      {frames}
-    </Keyframes>
-  );
-};
 
 function Terminal(props: TerminalProps) {
   const inputRef = useRef<HTMLInputElement>(null);
@@ -78,7 +49,6 @@ function Terminal(props: TerminalProps) {
   };
 
   const waitingOnPrompt = currentLine === terminalContent.length;
-
   return (
     <div className="terminalWrapper">
       <div className="menubar">
@@ -91,7 +61,7 @@ function Terminal(props: TerminalProps) {
           if (index < currentLine) {
             return <p key={index}>{renderText(text)}</p>;
           } else if (index === currentLine) {
-            return renderLine(text, index, () => setCurrentLine((i) => i + 1));
+            return <p key={index} ><AnimatedText text={text} key={index} textRenderer={renderText} onComplete={() => setCurrentLine(index + 1)} /></p>
           }
           return null;
         })}

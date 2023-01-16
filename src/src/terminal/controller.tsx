@@ -1,15 +1,16 @@
 import { useMemo, useState } from "react";
+import { about } from "./content";
 import TerminalUI from "./ui";
 
 const InitialText: string[] = [
   "Welcome!",
-  'Type type or click one of the buttons below',
+  'Type or click one of the buttons below',
 ];
 
 const commandMap = [
   {
     key: "about",
-    value: "todo",
+    value: about,
   },
   {
     key: "education",
