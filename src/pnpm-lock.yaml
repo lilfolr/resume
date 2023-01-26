@@ -4,6 +4,7 @@ specifiers:
   '@types/node': ^16.18.11
   '@types/react': ^18.0.26
   '@types/react-dom': ^18.0.10
+  eslint-config-prettier: ^8.6.0
   prettier: ^2.8.3
   react: ^18.2.0
   react-dom: ^18.2.0
@@ -22,6 +23,7 @@ dependencies:
   typescript: 4.9.4
 
 devDependencies:
+  eslint-config-prettier: 8.6.0
   prettier: 2.8.3
 
 packages:
@@ -4305,6 +4307,13 @@ packages:
     optionalDependencies:
       source-map: 0.6.1
     dev: false
+
+  /eslint-config-prettier/8.6.0:
+    resolution: {integrity: sha512-bAF0eLpLVqP5oEVUFKpMA+NnRFICwn9X8B5jrR9FcqnYBuPbqWEjTEspPWMj5ye6czoSLDweCzSo3Ko7gGrZaA==}
+    hasBin: true
+    peerDependencies:
+      eslint: '>=7.0.0'
+    dev: true
 
   /eslint-config-react-app/7.0.1_rpd7uhx77krrslgfzifo4tws2e:
     resolution: {integrity: sha512-K6rNzvkIeHaTd8m/QEh1Zko0KI7BACWkkneSs6s9cKZC/J27X3eZR6Upt1jkmZ/4FK+XUOPPxMEN7+lbUXfSlA==}

@@ -1,5 +1,12 @@
 import { useMemo, useState } from 'react';
-import { about, education, interests, profiles } from './content';
+import {
+  about,
+  education,
+  experience,
+  interests,
+  profiles,
+  skills
+} from './content';
 import { TerminalContentType, TerminalContentTypePrompt } from './types';
 import TerminalUI from './ui';
 
@@ -22,17 +29,17 @@ const commandMap: { key: string; value: TerminalContentType }[] = [
     key: 'education',
     value: education
   },
-  // {
-  //   key: "skills",
-  //   value: "todo",
-  // },
-  // {
-  //   key: "experience",
-  //   value: "todo",
-  // },
   {
-    key: "interests",
-    value: interests,
+    key: 'skills',
+    value: skills
+  },
+  {
+    key: 'experience',
+    value: experience
+  },
+  {
+    key: 'interests',
+    value: interests
   },
   {
     key: 'profiles',

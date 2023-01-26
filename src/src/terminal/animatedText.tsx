@@ -4,6 +4,7 @@ import { FormattedText } from './types';
 type AnimatedTextProps = {
   text: FormattedText[];
   onComplete: () => void;
+  onType: () => void;
   textRenderer: (t: React.ReactElement) => React.ReactElement;
 };
 
@@ -11,35 +12,43 @@ export const AnimatedText = (props: AnimatedTextProps) => {
   const [characterNumber, setCharacterNumber] = useState(0);
   const timer = useRef<null | NodeJS.Timer>(null);
 
+  const { onType, onComplete, text } = props;
+
   const totalCharacters = useMemo(() => {
     let total = 0;
-    props.text.forEach((t) => {
+    text.forEach((t) => {
       if (t !== 'NewLine') {
         total += t.text.length;
       }
     });
     return total;
-  }, [props.text]);
+  }, [text]);
 
-  const timeoutLimit = totalCharacters > 50 ? 10 : 50;
+  let timeoutLimit = 50;
+  if (totalCharacters > 50) {
+    timeoutLimit = 10;
+  } else if (totalCharacters > 200) {
+    timeoutLimit = 5;
+  }
 
   useEffect(() => {
     timer.current = setInterval(() => {
       setCharacterNumber((c) => c + 1);
+      onType();
     }, timeoutLimit);
     return () => {
       timer.current && clearInterval(timer.current);
     };
-  }, []);
+  }, [timeoutLimit, onType]);
 
   useEffect(() => {
     if (characterNumber >= totalCharacters) {
       timer.current && clearInterval(timer.current);
-      props.onComplete();
+      onComplete();
     }
-  }, [characterNumber]);
+  }, [characterNumber, totalCharacters, onComplete]);
 
-  const partialText = buildPartialTextElement(props.text, characterNumber);
+  const partialText = buildPartialTextElement(text, characterNumber);
 
   return props.textRenderer(partialText);
 };
@@ -48,10 +57,11 @@ export function buildPartialTextElement(
   text: FormattedText[],
   characterNumber?: number
 ) {
-  let elements: React.ReactElement[] = [];
+  const elements: React.ReactElement[] = [];
   let charactersLeft = characterNumber;
+  console.group();
   for (const textElement of text) {
-    if (charactersLeft && charactersLeft <= 0) {
+    if (charactersLeft !== undefined && charactersLeft <= 0) {
       break;
     }
     if (textElement === 'NewLine') {
@@ -59,16 +69,22 @@ export function buildPartialTextElement(
       continue;
     }
     if (
-      charactersLeft == undefined ||
+      charactersLeft === undefined ||
       textElement.text.length <= charactersLeft
     ) {
       if (textElement.format === 'Link') {
         elements.push(
-          <a target="_blank" href={textElement.text} key={elements.length}>
+          <a
+            target="_blank"
+            href={textElement.text}
+            key={elements.length}
+            rel="noreferrer"
+          >
             {textElement.text}
           </a>
         );
       } else {
+        console.log('Pushed', textElement.text);
         elements.push(
           <span key={elements.length} style={formatToStyle(textElement.format)}>
             {textElement.text}
@@ -79,6 +95,7 @@ export function buildPartialTextElement(
         charactersLeft -= textElement.text.length;
       }
     } else {
+      console.log('Pushed', textElement.text.slice(0, charactersLeft));
       elements.push(
         <span key={elements.length} style={formatToStyle(textElement.format)}>
           {textElement.text.slice(0, charactersLeft)}
@@ -87,6 +104,7 @@ export function buildPartialTextElement(
       charactersLeft = 0;
     }
   }
+  console.groupEnd();
   return <>{elements}</>;
 }
 

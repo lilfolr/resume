@@ -1,4 +1,4 @@
-import React, { useRef, useState } from 'react';
+import React, { useEffect, useRef, useState } from 'react';
 import { AnimatedText, buildPartialTextElement } from './animatedText';
 import { TerminalContentType } from './types';
 import './ui.css';
@@ -24,15 +24,25 @@ const renderPrompt = (
 
 function Terminal(props: TerminalProps) {
   const inputRef = useRef<HTMLInputElement>(null);
+  const messagesEndRef = useRef<HTMLDivElement>(null);
   const [currentLine, setCurrentLine] = useState(0);
   const [currentText, setCurrentText] = useState('');
 
   const { terminalContent } = props;
 
+  const waitingOnPrompt = currentLine === terminalContent.length;
+
   const focusInput = () => {
     inputRef.current?.focus();
     resetCaret();
   };
+  const scrollToBottom = () => {
+    messagesEndRef.current?.scrollIntoView({ behavior: 'smooth' });
+  };
+
+  useEffect(() => {
+    scrollToBottom();
+  }, [waitingOnPrompt]);
   const resetCaret = () => {
     // We want to disable moving of the caret in our hidden input
     inputRef.current?.setSelectionRange(9999, 9999);
@@ -40,7 +50,9 @@ function Terminal(props: TerminalProps) {
   const inputKeyPress: React.KeyboardEventHandler<HTMLInputElement> = (key) => {
     resetCaret();
     if (key.key === 'Enter') {
-      inputRef.current?.value && submit(inputRef.current!.value);
+      if (inputRef.current) {
+        submit(inputRef.current.value);
+      }
     }
   };
 
@@ -49,7 +61,6 @@ function Terminal(props: TerminalProps) {
     props.onEnter(text);
   };
 
-  const waitingOnPrompt = currentLine === terminalContent.length;
   return (
     <div className="terminalWrapper">
       <div className="menubar">
@@ -79,6 +90,7 @@ function Terminal(props: TerminalProps) {
                       : (t: React.ReactElement) => <span>{t}</span>
                   }
                   onComplete={() => setCurrentLine(index + 1)}
+                  onType={() => scrollToBottom()}
                 />
               </p>
             );
@@ -121,6 +133,7 @@ function Terminal(props: TerminalProps) {
             ))}
           </div>
         )}
+        <div ref={messagesEndRef} />
       </div>
     </div>
   );

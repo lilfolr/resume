@@ -14,9 +14,10 @@
   },
   "scripts": {
     "start": "react-scripts start",
-    "build": "react-scripts build",
+    "build": "pnpm lint && react-scripts build",
     "test": "react-scripts test",
-    "lintFix": "prettier --check \"**/*.?(t|j)s?(x)\" --ignore-path ../.prettierignore --write"
+    "lint": "prettier --check \"**/*.?(t|j)s?(x)\" --ignore-path .prettierignore",
+    "lintFix": "eslint --fix --ext .ts,.tsx,.js,.jsx . && prettier --check \"**/*.?(t|j)s?(x)\" --ignore-path .prettierignore --write"
   },
   "eslintConfig": {
     "extends": [
@@ -37,6 +38,7 @@
     ]
   },
   "devDependencies": {
+    "eslint-config-prettier": "^8.6.0",
     "prettier": "^2.8.3"
   }
 }
