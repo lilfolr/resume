@@ -10,6 +10,7 @@
   text-align: left;
   font-family: "Courier New", Courier, monospace;
   color: var(--text-color);
+  overflow-x: scroll;
 }
 
 .terminalBody > p {
@@ -17,6 +18,7 @@
   margin: 5px 0;
   color: var(--text-color);
   overflow: scroll;
+  white-space: pre-wrap;
 }
 
 .terminalBody > p > .caret {
@@ -33,6 +35,10 @@
   width: 0;
   overflow: hidden;
   position: absolute;
+}
+
+.terminalBody a {
+  color: #10ffff;
 }
 
 .terminalBody span.valid {

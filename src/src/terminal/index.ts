@@ -1,1 +1,1 @@
-export {default as Terminal} from "./controller"
+export { default as Terminal } from './controller';
