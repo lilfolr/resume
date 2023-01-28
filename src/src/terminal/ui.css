@@ -10,14 +10,14 @@
   text-align: left;
   font-family: "Courier New", Courier, monospace;
   color: var(--text-color);
-  overflow-x: scroll;
+  overflow-x: auto;
 }
 
 .terminalBody > p {
   padding-left: 20px;
   margin: 5px 0;
   color: var(--text-color);
-  overflow: scroll;
+  overflow: auto;
   white-space: pre-wrap;
 }
 
@@ -39,6 +39,10 @@
 
 .terminalBody a {
   color: #10ffff;
+}
+
+.terminalBody a:hover {
+  color: #00b4b4;
 }
 
 .terminalBody span.valid {
@@ -99,10 +103,13 @@
   width: 60%;
   height: 30px;
   background-color: black;
-  text-align: left;
-  text-align: left;
+  text-align: center;
   display: flex;
   align-items: center;
+}
+.menubar .terminalTitle {
+  color: var(--text-color);
+  flex-grow: 1;
 }
 
 .icon {

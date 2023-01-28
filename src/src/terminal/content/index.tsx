@@ -25,7 +25,14 @@ export const about: TerminalContentTypeResponse = {
   content: [
     {
       format: 'Normal',
-      text: 'Software engineering professional with proven experience in web application development and full application lifecycle development. Known for passion in developing innovative solutions that expedite the efficiency of project delivery, as well as the unique ability to apply strategic thinking in alignment of an organisation’s vision. Collaborate well with colleagues and management by actively listening to other’s perspectives while offering creative solutions to complex problems. Able to exercise leadership and take on a variety of roles within the team. Keen knowledge in cybersecurity, with a desire to expand knowledge in the area.'
+      text: [
+      "Software engineering professional with proven experience in web application development and full application lifecycle development.",
+      "Known for passion in developing innovative solutions that expedite the efficiency of project delivery,",
+      "as well as the unique ability to apply strategic thinking in alignment of an organisation's vision." ,
+      "Collaborate well with colleagues and management by actively listening to other's perspectives while offering creative solutions to complex problems." ,
+      "Able to exercise leadership and take on a variety of roles within the team." ,
+      "Keen knowledge in cybersecurity, with a desire to expand knowledge in the area.",
+      ].join("")
     }
   ]
 };
@@ -80,6 +87,7 @@ export const skills: TerminalContentTypeResponse = {
     t('Bash; Make'),
     'NewLine',
     b('Java:                    Proficient'),
+    b('C#:                      Proficient'),
     'NewLine',
     'NewLine',
 
@@ -163,7 +171,7 @@ export const experience: TerminalContentTypeResponse = {
     b('2015-2016'),
     'NewLine',
     t(
-      'Tasked with various .net focused assignments, including reverse engineering .net binaries to be used in future analysis and optimisation projects, and overhauling SSIS packages for BHP’s rail operations.'
+      'Tasked with various .net focused assignments, including reverse engineering .net binaries to be used in future analysis and optimisation projects, and overhauling SSIS packages for BHP\'s rail operations.'
     ),
     'NewLine',
     t('Technologies used in this role:'),
@@ -242,23 +250,20 @@ export const interests: TerminalContentTypeResponse = {
     'NewLine',
     b('Own Projects'),
     'NewLine',
-    t('Core maintainer of react timeline component: '),
+    t('- Core maintainer of react timeline component: '),
     a('https://github.com/React9k/react-timeline-9000'),
     'NewLine',
-    'NewLine',
     t(
-      'Adapted the Linux kernel networking stack to create a custom TCP-like protocol'
+      '- Adapted the Linux kernel networking stack to create a custom TCP-like protocol'
     ),
     'NewLine',
-    'NewLine',
     t(
-      'Created a IPTables firewall simulator using docker containers and extracted IPTables kernel modules.'
+      '- Created a IPTables firewall simulator using docker containers and extracted IPTables kernel modules.'
     ),
     'NewLine',
     a('https://github.com/lilfolr/GENG5511'),
     'NewLine',
-    'NewLine',
-    t('Built a react native bitbucket app: '),
+    t('- Built a react native bitbucket app: '),
     'NewLine',
     a('https://play.google.com/store/apps/details?id=com.lrlilford.bitbox')
   ]
