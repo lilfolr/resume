@@ -27,8 +27,8 @@ export const AnimatedText = (props: AnimatedTextProps) => {
   let timeoutLimit = 50;
   if (totalCharacters > 50) {
     timeoutLimit = 10;
-  } 
-   if (totalCharacters > 200) {
+  }
+  if (totalCharacters > 200) {
     timeoutLimit = 5;
   }
 

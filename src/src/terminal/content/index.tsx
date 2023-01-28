@@ -26,13 +26,13 @@ export const about: TerminalContentTypeResponse = {
     {
       format: 'Normal',
       text: [
-      "Software engineering professional with proven experience in web application development and full application lifecycle development.",
-      "Known for passion in developing innovative solutions that expedite the efficiency of project delivery,",
-      "as well as the unique ability to apply strategic thinking in alignment of an organisation's vision." ,
-      "Collaborate well with colleagues and management by actively listening to other's perspectives while offering creative solutions to complex problems." ,
-      "Able to exercise leadership and take on a variety of roles within the team." ,
-      "Keen knowledge in cybersecurity, with a desire to expand knowledge in the area.",
-      ].join("")
+        'Software engineering professional with proven experience in web application development and full application lifecycle development.',
+        'Known for passion in developing innovative solutions that expedite the efficiency of project delivery,',
+        "as well as the unique ability to apply strategic thinking in alignment of an organisation's vision.",
+        "Collaborate well with colleagues and management by actively listening to other's perspectives while offering creative solutions to complex problems.",
+        'Able to exercise leadership and take on a variety of roles within the team.',
+        'Keen knowledge in cybersecurity, with a desire to expand knowledge in the area.'
+      ].join('')
     }
   ]
 };
@@ -171,7 +171,7 @@ export const experience: TerminalContentTypeResponse = {
     b('2015-2016'),
     'NewLine',
     t(
-      'Tasked with various .net focused assignments, including reverse engineering .net binaries to be used in future analysis and optimisation projects, and overhauling SSIS packages for BHP\'s rail operations.'
+      "Tasked with various .net focused assignments, including reverse engineering .net binaries to be used in future analysis and optimisation projects, and overhauling SSIS packages for BHP's rail operations."
     ),
     'NewLine',
     t('Technologies used in this role:'),
