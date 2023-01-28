@@ -20,30 +20,19 @@ jobs:
       with:
         node-version: 16
 
-    - uses: pnpm/action-setup@v2
-      name: Install pnpm
+    - name: Cache node modules
+      id: cache-modules
+      uses: actions/cache@v2
       with:
-        version: 7
-        run_install: false
-
-    - name: Get pnpm store directory
-      id: pnpm-cache
-      shell: bash
-      run: |
-        echo "STORE_PATH=$(pnpm store path)" >> $GITHUB_OUTPUT
-
-    - uses: actions/cache@v3
-      name: Setup pnpm cache
-      with:
-        path: ${{ steps.pnpm-cache.outputs.STORE_PATH }}
-        key: ${{ runner.os }}-pnpm-store-${{ hashFiles('src/pnpm-lock.yaml') }}
+        path: ~/.cache/yarn
+        key: ${{ runner.os }}-yarn-${{ hashFiles('src/yarn.lock') }}
         restore-keys: |
-          ${{ runner.os }}-pnpm-store-
-      
+          ${{ runner.os }}-yarn-
+
     - name: Install dependencies
-      run: pnpm install
+      run: yarn install
       working-directory: ./src
 
     - name: Build
-      run: pnpm build
+      run: yarn build
       working-directory: ./src
