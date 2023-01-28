@@ -14,7 +14,7 @@
   },
   "scripts": {
     "start": "react-scripts start",
-    "build": "pnpm lint && react-scripts build",
+    "build": "yarn lint && react-scripts build",
     "test": "react-scripts test",
     "lint": "prettier --check \"**/*.?(t|j)s?(x)\" --ignore-path .prettierignore",
     "lintFix": "eslint --fix --ext .ts,.tsx,.js,.jsx . && prettier --check \"**/*.?(t|j)s?(x)\" --ignore-path .prettierignore --write"
