@@ -1,0 +1,132 @@
+:root {
+  --text-color: #e4e4e4
+}
+
+.terminalBody {
+  width: 60%;
+  background-color: black;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+  flex-grow: 1;
+  text-align: left;
+  font-family: "Courier New", Courier, monospace;
+  color: var(--text-color);
+  overflow-x: auto;
+}
+
+.terminalBody > p {
+  padding-left: 20px;
+  margin: 5px 0;
+  color: var(--text-color);
+  overflow: auto;
+  white-space: pre-wrap;
+}
+
+.terminalBody > p > .caret {
+  background: rgba(28, 208, 248, 0.8);
+  display: inline-block;
+  width: 7px;
+  height: 15px;
+  position: relative;
+  bottom: 1px;
+  vertical-align: middle;
+}
+
+.terminalBody > div.hidden {
+  width: 0;
+  overflow: hidden;
+  position: absolute;
+}
+
+.terminalBody a {
+  color: #10ffff;
+}
+
+.terminalBody a:hover {
+  color: #00b4b4;
+}
+
+.terminalBody span.valid {
+  color: rgb(44, 69, 255);
+  font-weight: bold;
+}
+
+.terminalBody  span.invalid {
+  color: rgb(222, 25, 25);
+  font-weight: bold;
+}
+
+.terminalBody > p > .caret.blinking {
+  animation: blinker 1s ease-in-out infinite;
+}
+@keyframes blinker {
+  50% {
+    opacity: 0;
+  }
+}
+
+.terminalBody > div.bottomBar {
+  color: var(--text-color);
+  margin-left: 50px;
+}
+
+.terminalBody > div.bottomBar > button.bottomButton {
+  background-color: #2c2c2c;
+  border: none;
+  color: rgb(201, 201, 201);
+  padding: 5px 10px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  margin: 4px 2px;
+  cursor: pointer;
+  border-radius: 5px;
+}
+
+.terminalBody > div.bottomBar > button.bottomButton:hover {
+  background-color: #454545;
+}
+
+.terminalBody > div.bottomBar > button.bottomButton:active {
+  background-color: #5d5d5d;
+}
+
+.terminalWrapper {
+  align-items: center;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  height: calc(100vh - 100px);
+  padding: 50px;
+}
+
+.menubar {
+  width: 60%;
+  height: 30px;
+  background-color: black;
+  text-align: center;
+  display: flex;
+  align-items: center;
+}
+.menubar .terminalTitle {
+  color: var(--text-color);
+  flex-grow: 1;
+}
+
+.icon {
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
+  display: inline-block;
+}
+.close {
+  background-color: #ff5f56;
+  margin-left: 10px;
+}
+.minimize {
+  background-color: #ffbd2e;
+  margin-left: 7px;
+}
+.expand {
+  background-color: #27c93e;
+  margin-left: 7px;
+}
