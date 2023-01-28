@@ -37,7 +37,7 @@ function Terminal(props: TerminalProps) {
     resetCaret();
   };
   const scrollToBottom = () => {
-    messagesEndRef.current?.scrollIntoView({ behavior: 'smooth' });
+    messagesEndRef.current?.scrollIntoView({ behavior: 'auto' });
   };
 
   useEffect(() => {
@@ -67,6 +67,7 @@ function Terminal(props: TerminalProps) {
         <div className="icon close" />
         <div className="icon minimize" />
         <div className="icon expand" />
+        <div className="terminalTitle">Leighton's Resume</div>
       </div>
       <div className="terminalBody" onClick={focusInput}>
         {terminalContent.map((text, index) => {

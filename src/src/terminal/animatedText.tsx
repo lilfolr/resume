@@ -27,7 +27,8 @@ export const AnimatedText = (props: AnimatedTextProps) => {
   let timeoutLimit = 50;
   if (totalCharacters > 50) {
     timeoutLimit = 10;
-  } else if (totalCharacters > 200) {
+  } 
+   if (totalCharacters > 200) {
     timeoutLimit = 5;
   }
 
@@ -59,7 +60,6 @@ export function buildPartialTextElement(
 ) {
   const elements: React.ReactElement[] = [];
   let charactersLeft = characterNumber;
-  console.group();
   for (const textElement of text) {
     if (charactersLeft !== undefined && charactersLeft <= 0) {
       break;
@@ -84,7 +84,6 @@ export function buildPartialTextElement(
           </a>
         );
       } else {
-        console.log('Pushed', textElement.text);
         elements.push(
           <span key={elements.length} style={formatToStyle(textElement.format)}>
             {textElement.text}
@@ -95,7 +94,6 @@ export function buildPartialTextElement(
         charactersLeft -= textElement.text.length;
       }
     } else {
-      console.log('Pushed', textElement.text.slice(0, charactersLeft));
       elements.push(
         <span key={elements.length} style={formatToStyle(textElement.format)}>
           {textElement.text.slice(0, charactersLeft)}
@@ -104,7 +102,6 @@ export function buildPartialTextElement(
       charactersLeft = 0;
     }
   }
-  console.groupEnd();
   return <>{elements}</>;
 }
 
