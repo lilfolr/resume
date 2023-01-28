@@ -1,4 +1,5 @@
 import { useMemo, useState } from 'react';
+import { awsRum } from '../App';
 import {
   about,
   education,
@@ -52,6 +53,7 @@ function Terminal() {
 
   const onEnter = (text: string) => {
     const response = commandMap.find((c) => c.key === text);
+    awsRum?.recordEvent('CommandRun', { command: text });
     if (response) {
       setTerminalContent([
         ...terminalContent,
