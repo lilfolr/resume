@@ -35,4 +35,4 @@ jobs:
       working-directory: ./src
 
     - name: Deploy static site to S3 bucket
-      run: aws s3 sync ./src/build/ s3://lrlilford-resume--delete
+      run: aws s3 sync ./src/build/ s3://lrlilford-resume --delete
