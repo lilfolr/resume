@@ -1,0 +1,38 @@
+name: Deploy
+
+on:
+  push:
+    branches:
+    - master
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    permissions:
+      id-token: write
+      contents: read
+    steps:
+    - name: Checkout repository
+      uses: actions/checkout@v3
+
+    - name: Configure AWS Credentials
+      uses: aws-actions/configure-aws-credentials@v2
+      with:
+        role-to-assume: arn:aws:iam::913228560460:role/resume_github_deploy
+        aws-region: ap-southeast-2
+
+    - name: Install Node.js
+      uses: actions/setup-node@v3
+      with:
+        node-version: 16
+
+    - name: Install dependencies
+      run: yarn install
+      working-directory: ./src
+
+    - name: Build
+      run: yarn build
+      working-directory: ./src
+
+    - name: Deploy static site to S3 bucket
+      run: aws s3 sync ./src/build/ s3://lrlilford-resume--delete
