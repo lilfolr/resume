@@ -2661,10 +2661,10 @@ available-typed-arrays@^1.0.5:
   resolved "https://registry.yarnpkg.com/available-typed-arrays/-/available-typed-arrays-1.0.5.tgz#92f95616501069d07d10edb2fc37d3e1c65123b7"
   integrity sha512-DMD0KiN46eipeziST1LPP/STfDU0sufISXmjSgvVsoU2tqxctQeASejWcfNtxYKqETM1UxQ8sp2OrSBWpHY6sw==
 
-aws-rum-web@^1.12.0:
-  version "1.12.0"
-  resolved "https://registry.yarnpkg.com/aws-rum-web/-/aws-rum-web-1.12.0.tgz#7bd525271ca6181339952b6a7fe8a7a230a0754d"
-  integrity sha512-VVV1UFw+e7a5vZpj8QmrRgygD8fAHOHnn7nxIjgHy2G7TE8sOHMWuG4KCv7nUVq2HOlV+5l/ckLVvD/tRx8YOw==
+aws-rum-web@^1.13.6:
+  version "1.13.6"
+  resolved "https://registry.yarnpkg.com/aws-rum-web/-/aws-rum-web-1.13.6.tgz#129e903b6b121f3c9b3ac7779284fc3414a7d03f"
+  integrity sha512-FNUn24PX6Z0/IPtmNv+1NXtIbakwSJDQPIIAYWW7xXNTIQcnAZzpJyPnbYuiScMCGHAGVacYaTV4NhurSDMUyQ==
   dependencies:
     "@aws-crypto/sha256-js" "^2.0.2"
     "@aws-sdk/fetch-http-handler" "^3.36.0"
@@ -2674,7 +2674,7 @@ aws-rum-web@^1.12.0:
     "@babel/runtime" "^7.16.0"
     shimmer "^1.2.1"
     ua-parser-js "^0.7.23"
-    uuid "^8.3.2"
+    uuid "^9.0.0"
     web-vitals "^3.0.2"
 
 axe-core@^4.6.2:
@@ -8668,6 +8668,11 @@ uuid@^8.3.2:
   version "8.3.2"
   resolved "https://registry.yarnpkg.com/uuid/-/uuid-8.3.2.tgz#80d5b5ced271bb9af6c445f21a1a04c606cefbe2"
   integrity sha512-+NYs2QeMWy+GWFOEm9xnn6HCDp0l7QBD7ml8zLUmJ+93Q5NF0NocErnwkTkXVFNiX3/fpC6afS8Dhb/gz7R7eg==
+
+uuid@^9.0.0:
+  version "9.0.0"
+  resolved "https://registry.yarnpkg.com/uuid/-/uuid-9.0.0.tgz#592f550650024a38ceb0c562f2f6aa435761efb5"
+  integrity sha512-MXcSTerfPa4uqyzStbRoTgt5XIe3x5+42+q1sDuy3R5MDk66URdLMOZe5aPX/SQd+kuYAh0FdP/pO28IkQyTeg==
 
 v8-to-istanbul@^8.1.0:
   version "8.1.1"
