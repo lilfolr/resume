@@ -1,6 +1,4 @@
 on:
-  push:
-    branches: [ "master" ]
   pull_request:
     # The branches below must be a subset of the branches above
     branches: [ "master" ]
@@ -13,7 +11,6 @@ jobs:
     steps:
     - name: Checkout repository
       uses: actions/checkout@v3
-
 
     - name: Install Node.js
       uses: actions/setup-node@v3

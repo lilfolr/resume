@@ -116,9 +116,19 @@ export const skills: TerminalContentTypeResponse = {
 export const experience: TerminalContentTypeResponse = {
   type: 'response',
   content: [
-    lb('Software Development Engineer - Networking, Amazon Web Services'),
+    lb('Senior Software Development Engineer - Professional Services, AWS'),
     'NewLine',
-    b('2019-Present'),
+    b('2023-Present'),
+    'NewLine',
+    'NewLine',
+    lb('Software Development Engineer - Professional Services, AWS'),
+    'NewLine',
+    b('2021-2023'),
+    'NewLine',
+    'NewLine',
+    lb('Software Development Engineer - Networking, AWS'),
+    'NewLine',
+    b('2019-2021'),
     'NewLine',
     t(
       'Maintained and built enhancements for several long-standing applications used internally by AWS to ensure networking infrastructure is both kept up to date, and any blockers or systemic issues hindering deployment velocity are revealed. The expertise I bring to the team includes advanced awareness of modern frontend technologies; excellent knowledge on Linux and AWS services and innovative problem-solving skills.'
